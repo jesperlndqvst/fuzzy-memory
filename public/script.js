@@ -21,7 +21,7 @@ const stringToHTML = str => {
     return div.firstChild;
 };
 
-// Create ingredient template with a template literal
+// Create card template with a template literal
 const createCard = (icon, alt) => {
     return `<div class="memory-card">
         <img class="front-face" src="${icon}" alt="${alt}" />
@@ -30,20 +30,41 @@ const createCard = (icon, alt) => {
     `;
 };
 
-// Render the ingredient element to the DOM
+// Makes the card element into pairs and render them to the DOM
 const generateCards = () => {
-    cardsData.forEach(item => {
-        const element = createCard(item.image, item.alt);
-        memoryGame.appendChild(stringToHTML(element));
-    });
+    for(let i = 0; i < 2; i++) {
+        cardsData.forEach(item => {
+            const element = createCard(item.image, item.alt);
+            memoryGame.appendChild(stringToHTML(element));
+        });
+    } 
 };
-
 
 // Makes the cards flip
 const flipCards = () => {
     const cards = document.querySelectorAll('.memory-card');
+    let hasFlippedCard = false;
+    let firstCard, secondCard;
+
     function flipCard() {
-        this.classList.toggle('flip');
+        this.classList.add('flip');
+        console.log(this);
+
+        if(!hasFlippedCard) {
+            hasFlippedCard = true;
+            firstCard = this;
+        } else {
+            hasFlippedCard = false;
+            secondCard = this;
+        }
+
+        console.log(firstCard, secondCard);
+
+
+
+
+
+
     }
     cards.forEach(card => card.addEventListener('click', flipCard));
 }
