@@ -1,8 +1,7 @@
 'use strict';
 
-
-const cards = [
-    { image: "./img/ape.svg", alt: "Ape" },
+const cardsData = [
+    { image: "/img/ape.svg", alt: "Ape" },
     { image: "./img/bear.svg", alt: "Bear" },
     { image: "./img/cow.svg", alt: "Cow" },
     { image: "./img/dog.svg", alt: "Dog" },
@@ -33,22 +32,32 @@ const createCard = (icon, alt) => {
 
 // Render the ingredient element to the DOM
 const generateCards = () => {
-    cards.forEach(item => {
+    cardsData.forEach(item => {
         const element = createCard(item.image, item.alt);
         memoryGame.appendChild(stringToHTML(element));
     });
 };
 
 
+// Makes the cards flip
+const flipCards = () => {
+    const cards = document.querySelectorAll('.memory-card');
+    function flipCard() {
+        this.classList.toggle('flip');
+    }
+    cards.forEach(card => card.addEventListener('click', flipCard));
+}
+
+
 // Initial function
 const init = () => {
     generateCards();
-    
+    flipCards();
 
-  };
-  
-  // Initialise 
-  init();
-  
+};
+
+// Initialise 
+init();
+
 
 
