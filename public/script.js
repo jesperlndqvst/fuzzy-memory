@@ -15,12 +15,12 @@ const memoryGame = document.querySelector(".memory-game");
 
 // Duplicate cards into pairs
 const doubleValues = () => {
-    return cardsData = cardsData.flatMap(el => [el,el]);
-} 
+    return cardsData = cardsData.flatMap(el => [el, el]);
+}
 
 // Shuffles the cards
 const shuffleCards = () => {
-    return cardsData.sort(() => 0.5-Math.random());
+    return cardsData.sort(() => 0.5 - Math.random());
 }
 
 // Helper function to prevent XSS injections
@@ -42,10 +42,10 @@ const createCard = (icon, key, alt) => {
 
 // Makes the card element into pairs and render them to the DOM
 const generateCards = () => {
-        cardsData.forEach(item => {
-            const element = createCard(item.image, item.key, item.alt);
-            memoryGame.appendChild(stringToHTML(element));
-        });
+    cardsData.forEach(item => {
+        const element = createCard(item.image, item.key, item.alt);
+        memoryGame.appendChild(stringToHTML(element));
+    });
 };
 
 // Makes the cards flip
@@ -71,19 +71,29 @@ const gameStart = () => {
 
     // Checks if there is a match
     const checkCards = () => {
-        if (firstCard.dataset.key === secondCard.dataset.key) {
-            console.log('Its a match');
+        if (firstCard === secondCard) {
+            console.log('You pressed the same card.')
+            turnBackCards();
+        } else if (firstCard.dataset.key === secondCard.dataset.key) {
+            console.log(`MATCH - ${firstCard.dataset.key} - ${secondCard.dataset.key} - ${hasFlippedCard}`);
+            removeEvent();
         } else {
+            console.log(`NO MATCH - ${firstCard.dataset.key} - ${secondCard.dataset.key} - ${hasFlippedCard}`);
             turnBackCards();
         }
+    }
+
+    // Removes the eventlistener 
+    const removeEvent = () => {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
     }
 
     // Removes the flip classes and turns the cards back
     const turnBackCards = () => {
         setTimeout(() => {
-            console.log('Fail');
-            secondCard.classList.remove('flip');
             firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
         }, 1500);
     }
 
