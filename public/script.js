@@ -1,6 +1,6 @@
 'use strict';
 
-const cardsData = [
+let cardsData = [
     { image: "./img/ape.svg", key: "Ape", alt: "Ape" },
     { image: "./img/bear.svg", key: "Bear", alt: "Bear" },
     { image: "./img/cow.svg", key: "Cow", alt: "Cow" },
@@ -12,6 +12,16 @@ const cardsData = [
 ];
 
 const memoryGame = document.querySelector(".memory-game");
+
+// Duplicate cards into pairs
+const doubleValues = () => {
+    return cardsData = cardsData.flatMap(el => [el,el]);
+} 
+
+// Shuffles the cards
+const shuffleCards = () => {
+    return cardsData.sort(() => 0.5-Math.random());
+}
 
 // Helper function to prevent XSS injections
 // Creates an HTML element from string
@@ -32,16 +42,14 @@ const createCard = (icon, key, alt) => {
 
 // Makes the card element into pairs and render them to the DOM
 const generateCards = () => {
-    for (let i = 0; i < 2; i++) {
         cardsData.forEach(item => {
             const element = createCard(item.image, item.key, item.alt);
             memoryGame.appendChild(stringToHTML(element));
         });
-    }
 };
 
 // Makes the cards flip
-const flipCards = () => {
+const gameStart = () => {
     const cards = document.querySelectorAll('.memory-card');
     let hasFlippedCard = false;
     let firstCard, secondCard;
@@ -85,23 +93,12 @@ const flipCards = () => {
 
 // Initial function
 const init = () => {
+    doubleValues();
+    shuffleCards();
     generateCards();
-    flipCards();
+    gameStart();
 };
 
 // Initialise 
 init();
-
-
-
-const shuffle = (items) => {
-    
-    return items[Math.floor(Math.random() * items.length)];
-
-}
-
-console.log(shuffle(cardsData)); 
-
-
-
 
