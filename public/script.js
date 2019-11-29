@@ -94,5 +94,14 @@ init();
 
 
 
+const shuffle = (items) => {
+    
+    return items[Math.floor(Math.random() * items.length)];
+
+}
+
+console.log(shuffle(cardsData)); 
+
+
 
 
