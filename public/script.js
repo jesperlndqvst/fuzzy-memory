@@ -52,51 +52,55 @@ const generateCards = () => {
 const gameStart = () => {
     const cards = document.querySelectorAll('.memory-card');
     let hasFlippedCard = false;
+    let lockGame = false;
     let firstCard, secondCard;
 
     const flipCard = function () {
-        this.classList.add('flip');
-
+        if (!lockGame) {
+            this.classList.add('flip');
+        }
+        
         // Checks if card has been flipped
-        if (!hasFlippedCard) {
+        if (!hasFlippedCard && !lockGame) {
             hasFlippedCard = true;
             firstCard = this;
-        } else {
+        } else if (hasFlippedCard && !lockGame) {
             hasFlippedCard = false;
             secondCard = this;
             checkCards();
         }
-
     }
 
     // Checks if there is a match
     const checkCards = () => {
         if (firstCard === secondCard) {
-            console.log('You pressed the same card.')
             turnBackCards();
         } else if (firstCard.dataset.key === secondCard.dataset.key) {
-            console.log(`MATCH - ${firstCard.dataset.key} - ${secondCard.dataset.key} - ${hasFlippedCard}`);
             removeEvent();
         } else {
-            console.log(`NO MATCH - ${firstCard.dataset.key} - ${secondCard.dataset.key} - ${hasFlippedCard}`);
             turnBackCards();
         }
     }
 
     // Removes the eventlistener 
     const removeEvent = () => {
-        firstCard.removeEventListener('click', flipCard);
-        secondCard.removeEventListener('click', flipCard);
+        lockGame = true;
+        setTimeout(() => {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            lockGame = false;
+        }, 1500);    
     }
 
     // Removes the flip classes and turns the cards back
     const turnBackCards = () => {
+        lockGame = true;
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
+            lockGame = false;
         }, 1500);
     }
-
     cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
