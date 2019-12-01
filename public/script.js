@@ -15,9 +15,8 @@ let cardsData = [
 const memoryGame = document.querySelector(".memory-game");
 
 // Duplicate cards into pairs
-const doubleValues = () => {
-    return cardsData = cardsData.flatMap(el => [el, el]);
-}
+cardsData = cardsData.flatMap(el => [el, el]);
+
 
 // Shuffles the cards
 const shuffleCards = () => {
@@ -60,7 +59,7 @@ const gameStart = () => {
         if (!lockGame) {
             this.classList.add('flip');
         }
-        
+
         // Checks if card has been flipped
         if (!hasFlippedCard && !lockGame) {
             hasFlippedCard = true;
@@ -83,7 +82,7 @@ const gameStart = () => {
         }
     }
 
-    // Removes the eventlistener 
+    // Removes the eventlistener
     const removeEvent = () => {
         lockGame = true;
         setTimeout(() => {
@@ -91,7 +90,7 @@ const gameStart = () => {
             secondCard.removeEventListener('click', flipCard);
             checkCount();
             lockGame = false;
-        }, 1500);    
+        }, 1500);
     }
 
     // Removes the flip classes and turns the cards back
@@ -120,12 +119,11 @@ const gameStart = () => {
 
 // Initial function
 const init = () => {
-    doubleValues();
     shuffleCards();
     generateCards();
     gameStart();
 };
 
-// Initialise 
+// Initialise
 init();
 
