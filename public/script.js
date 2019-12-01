@@ -11,6 +11,7 @@ let cardsData = [
     { image: "./img/reindeer.svg", key: "Reindeer", alt: "Reindeer" }
 ];
 
+
 const memoryGame = document.querySelector(".memory-game");
 
 // Duplicate cards into pairs
@@ -52,6 +53,7 @@ const generateCards = () => {
 const gameStart = () => {
     const cards = document.querySelectorAll('.memory-card');
     let hasFlippedCard = false;
+    let counter = 0;
     let lockGame = false;
     let firstCard, secondCard;
 
@@ -88,6 +90,7 @@ const gameStart = () => {
         setTimeout(() => {
             firstCard.removeEventListener('click', flipCard);
             secondCard.removeEventListener('click', flipCard);
+            checkCount();
             lockGame = false;
         }, 1500);    
     }
@@ -101,6 +104,19 @@ const gameStart = () => {
             lockGame = false;
         }, 1500);
     }
+
+
+    const checkCount = () => {
+        counter++;
+        if (counter < (cardsData.length / 2)) {
+            console.log(counter);
+        } else {
+            console.log('Game is finished');
+        }
+    }
+
+
+
     cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
