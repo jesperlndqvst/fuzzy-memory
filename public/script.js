@@ -13,6 +13,8 @@ let cardsData = [
 
 
 const memoryGame = document.querySelector(".memory-game");
+const endGameDiv = document.querySelector('.end-game');
+const endGameButton = endGameDiv.querySelector('button');
 
 // Duplicate cards into pairs
 cardsData = cardsData.flatMap(el => [el, el]);
@@ -106,16 +108,28 @@ const gameStart = () => {
     // Checks if game is finished
     const checkCount = () => {
         counter++;
-        if (counter < (cardsData.length / 2)) {
-            console.log(counter);
-        } else {
-            console.log('Game is finished');
+        if (counter === cardsData.length / 2) {
+            endGame();
         }
     }
 
+    // Makes the end-game state visible
+    const endGame = () => {
+        endGameButton.classList.add('visible');
+        endGameButton.addEventListener('click', () => {
+            restart();
+        });
+    }
+
+    // Restarts the game
+    const restart = () => {
+        cards.forEach(card => card.parentNode.removeChild(card));
+        endGameButton.classList.remove('visible');
+        counter = 0;
+        init();
+    }
     cards.forEach(card => card.addEventListener('click', flipCard));
 }
-
 
 // Initial function
 const init = () => {
