@@ -33,7 +33,7 @@ h1 {
     color: #ffffff;
     padding: 1rem;
     border-radius: 10px;
-    display: none;
+
 }
 
 .end-game .visible {
@@ -103,5 +103,14 @@ h1 {
     .memory-game {
         width: 95vw;
         height: 82vh;
+    }
+
+    .end-game {
+        padding: 0.5rem 0;
+    }
+
+    .end-game button {
+        font-size: 1rem;
+        padding: 0.5rem;
     }
  }
