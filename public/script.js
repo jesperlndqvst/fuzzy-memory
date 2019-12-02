@@ -2,11 +2,11 @@
 
 let cardsData = [
     { image: "./img/ape.svg", key: "Ape" },
-    { image: "./img/bear.svg", key: "Bear"},
-    { image: "./img/cow.svg", key: "Cow"},
+    { image: "./img/bear.svg", key: "Bear" },
+    { image: "./img/cow.svg", key: "Cow" },
     { image: "./img/dog.svg", key: "Dog" },
     { image: "./img/donkey.svg", key: "Donkey" },
-    { image: "./img/panda.svg", key: "Panda"},
+    { image: "./img/panda.svg", key: "Panda" },
     { image: "./img/penguin.svg", key: "Penguin" },
     { image: "./img/fox.svg", key: "Fox" }
 ];
@@ -14,10 +14,11 @@ let cardsData = [
 const memoryGame = document.querySelector(".memory-game");
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
+const pEl = document.querySelector('p');
+const spanEl = pEl.querySelector('span');
 
 // Duplicate cards into pairs
 cardsData = cardsData.flatMap(el => [el, el]);
-
 
 // Shuffles the cards
 const shuffleCards = () => {
@@ -107,6 +108,7 @@ const gameStart = () => {
     // Checks if game is finished
     const checkCount = () => {
         counter++;
+        spanEl.textContent = counter;
         if (counter === cardsData.length / 2) {
             endGame();
         }
@@ -115,6 +117,7 @@ const gameStart = () => {
     // Makes the end-game state visible
     const endGame = () => {
         endGameButton.classList.add('visible');
+        pEl.classList.add('hidden');
         endGameButton.addEventListener('click', restart);
     }
 
@@ -122,6 +125,7 @@ const gameStart = () => {
     const restart = () => {
         cards.forEach(card => card.parentNode.removeChild(card));
         endGameButton.classList.remove('visible');
+        pEl.classList.remove('hidden');
         counter = 0;
         init();
     }

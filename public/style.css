@@ -20,6 +20,15 @@ h1 {
     padding: 2rem;
 }
 
+p {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.hidden {
+    display: none;
+}
+
 .end-game {
     text-align: center;
     padding-bottom: 2rem;
