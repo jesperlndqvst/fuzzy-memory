@@ -116,9 +116,11 @@ const gameStart = () => {
 
     // Makes the end-game state visible
     const endGame = () => {
-        endGameButton.classList.add('visible');
-        pEl.classList.add('hidden');
-        endGameButton.addEventListener('click', restart);
+        setTimeout(() => {
+            pEl.classList.add('hidden');
+            endGameButton.classList.add('visible');
+            endGameButton.addEventListener('click', restart);
+        }, 2000);
     }
 
     // Restarts the game
