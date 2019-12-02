@@ -20,6 +20,10 @@ h1 {
     padding: 2rem;
 }
 
+h1 span {
+    color: #fa6a72;
+}
+
 p {
     text-align: center;
     font-size: 1.8rem;
