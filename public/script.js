@@ -11,7 +11,6 @@ let cardsData = [
     { image: "./img/reindeer.svg", key: "Reindeer", alt: "Reindeer" }
 ];
 
-
 const memoryGame = document.querySelector(".memory-game");
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
@@ -116,9 +115,7 @@ const gameStart = () => {
     // Makes the end-game state visible
     const endGame = () => {
         endGameButton.classList.add('visible');
-        endGameButton.addEventListener('click', () => {
-            restart();
-        });
+        endGameButton.addEventListener('click', restart);
     }
 
     // Restarts the game
