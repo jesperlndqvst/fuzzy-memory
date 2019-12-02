@@ -1,14 +1,14 @@
 'use strict';
 
 let cardsData = [
-    { image: "./img/ape.svg", key: "Ape", alt: "Ape" },
-    { image: "./img/bear.svg", key: "Bear", alt: "Bear" },
-    { image: "./img/cow.svg", key: "Cow", alt: "Cow" },
-    { image: "./img/dog.svg", key: "Dog", alt: "Dog" },
-    { image: "./img/donkey.svg", key: "Donkey", alt: "Donkey" },
-    { image: "./img/panda.svg", key: "Panda", alt: "Panda" },
-    { image: "./img/penguin.svg", key: "Penguin", alt: "Penguin" },
-    { image: "./img/reindeer.svg", key: "Reindeer", alt: "Reindeer" }
+    { image: "./img/ape.svg", key: "Ape" },
+    { image: "./img/bear.svg", key: "Bear"},
+    { image: "./img/cow.svg", key: "Cow"},
+    { image: "./img/dog.svg", key: "Dog" },
+    { image: "./img/donkey.svg", key: "Donkey" },
+    { image: "./img/panda.svg", key: "Panda"},
+    { image: "./img/penguin.svg", key: "Penguin" },
+    { image: "./img/fox.svg", key: "Fox" }
 ];
 
 const memoryGame = document.querySelector(".memory-game");
@@ -91,7 +91,7 @@ const gameStart = () => {
             secondCard.removeEventListener('click', flipCard);
             checkCount();
             lockGame = false;
-        }, 1500);
+        }, 1000);
     }
 
     // Removes the flip classes and turns the cards back
@@ -101,7 +101,7 @@ const gameStart = () => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
             lockGame = false;
-        }, 1500);
+        }, 1000);
     }
 
     // Checks if game is finished

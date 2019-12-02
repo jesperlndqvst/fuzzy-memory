@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,7 +9,7 @@
 body {
     width: 100vw;
     background-color: #fbede9;
-    font-family: sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     text-transform: uppercase;
 }
 
@@ -39,8 +41,8 @@ h1 {
 }
 
 .memory-game {
-    width: 640px;
-    height: 640px;
+    width: 50vw;
+    height: 70vh;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -50,13 +52,12 @@ h1 {
 
 .memory-card {
     width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
+    height: calc(25% - 10px);
     margin: 5px;
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
-    transition: transform 0.5s;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
 }
 
 .memory-card:active {
@@ -83,3 +84,16 @@ h1 {
     transform: rotateY(180deg);
     background-color: #fa6a72;
 }
+
+@media (max-width: 576px) {
+
+    h1 {
+        font-size: 3rem;
+        padding: 0.5rem 0 0 0;
+    }
+
+    .memory-game {
+        width: 95vw;
+        height: 82vh;
+    }
+ }
