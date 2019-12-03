@@ -119,7 +119,8 @@ p {
 
     .end-game {
         padding: 0.5rem 0;
-        width: 100%;
+        width: 90%;
+        justify-content: space-between;
     }
 
     .end-game button {
