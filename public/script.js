@@ -58,7 +58,7 @@ const gameStart = () => {
     let firstCard, secondCard;
 
     const flipCard = (event) => {
-        console.log(event.currentTarget)
+
         if (!lockGame) {
             event.currentTarget.classList.add('flip');
         }
@@ -111,7 +111,7 @@ const gameStart = () => {
         counter++;
         spanEl.textContent = counter;
         if (counter === cardsData.length / 2) {
-            console.log('Hurra!');
+            endGameButton.classList.add('animate');
         }
     }
 
