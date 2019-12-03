@@ -110,15 +110,8 @@ const gameStart = () => {
         counter++;
         spanEl.textContent = counter;
         if (counter === cardsData.length / 2) {
-            endGame();
+            console.log('Hurra!');
         }
-    }
-
-    // Makes the end-game state visible
-    const endGame = () => {
-        setTimeout(() => {
-            endGameButton.addEventListener('click', restart);
-        }, 1000);
     }
 
     // Restarts the game
@@ -128,6 +121,10 @@ const gameStart = () => {
         spanEl.textContent = counter;
         init();
     }
+
+    // Runs the restart function on click
+    endGameButton.addEventListener('click', restart);
+
     cards.forEach(card => card.addEventListener('click', flipCard));
 }
 
