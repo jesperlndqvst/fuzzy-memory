@@ -26,16 +26,17 @@ h1 span {
 
 p {
     text-align: center;
-    font-size: 1.8rem;
-}
-
-.hidden {
-    display: none;
+    font-size: 2rem;
 }
 
 .end-game {
     text-align: center;
     padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: auto;
 }
 
 .end-game button {
@@ -46,11 +47,6 @@ p {
     color: #ffffff;
     padding: 1rem;
     border-radius: 10px;
-    display: none;
-}
-
-.end-game .visible {
-    display: inline-block;
 }
 
 .memory-game {

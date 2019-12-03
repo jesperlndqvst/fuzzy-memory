@@ -117,18 +117,15 @@ const gameStart = () => {
     // Makes the end-game state visible
     const endGame = () => {
         setTimeout(() => {
-            pEl.classList.add('hidden');
-            endGameButton.classList.add('visible');
             endGameButton.addEventListener('click', restart);
-        }, 2000);
+        }, 1000);
     }
 
     // Restarts the game
     const restart = () => {
         cards.forEach(card => card.parentNode.removeChild(card));
-        endGameButton.classList.remove('visible');
-        pEl.classList.remove('hidden');
         counter = 0;
+        spanEl.textContent = counter;
         init();
     }
     cards.forEach(card => card.addEventListener('click', flipCard));
