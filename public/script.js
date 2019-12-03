@@ -16,6 +16,7 @@ const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
 const pEl = document.querySelector('p');
 const spanEl = pEl.querySelector('span');
+let counter = 0;
 
 // Duplicate cards into pairs
 cardsData = cardsData.flatMap(el => [el, el]);
@@ -53,7 +54,6 @@ const generateCards = () => {
 const gameStart = () => {
     const cards = document.querySelectorAll('.memory-card');
     let hasFlippedCard = false;
-    let counter = 0;
     let lockGame = false;
     let firstCard, secondCard;
 
@@ -115,18 +115,19 @@ const gameStart = () => {
         }
     }
 
-    // Restarts the game
-    const restart = () => {
-        cards.forEach(card => card.parentNode.removeChild(card));
-        counter = 0;
-        spanEl.textContent = counter;
-        init();
-    }
-
     // Runs the restart function on click
-    endGameButton.addEventListener('click', restart);
-
     cards.forEach(card => card.addEventListener('click', flipCard));
+    endGameButton.addEventListener('click', restart);
+}
+
+// Restarts the game
+const restart = () => {
+    while (memoryGame.firstChild) {
+        memoryGame.removeChild(memoryGame.firstChild);
+      }
+    counter = 0;
+    spanEl.textContent = counter;
+    init();
 }
 
 // Initial function
