@@ -6,7 +6,7 @@ A memory game buit in in HTML, CSS and Javascript
 
 
 ## How to play
-1. [Clone](https://github.com/jesperlndqvst/fuzzy-memory) this in GitHub Desktop, in your terminal or by visiting http://animal-memory.netlify.com
+1. Clone this in GitHub Desktop, in your terminal or by visiting http://animal-memory.netlify.com
 2. Turn over the cards and match them!
 
 ## Testers
