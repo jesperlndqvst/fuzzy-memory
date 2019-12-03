@@ -57,18 +57,19 @@ const gameStart = () => {
     let lockGame = false;
     let firstCard, secondCard;
 
-    const flipCard = function () {
+    const flipCard = (event) => {
+        console.log(event.currentTarget)
         if (!lockGame) {
-            this.classList.add('flip');
+            event.currentTarget.classList.add('flip');
         }
 
         // Checks if card has been flipped
         if (!hasFlippedCard && !lockGame) {
             hasFlippedCard = true;
-            firstCard = this;
+            firstCard = event.currentTarget;
         } else if (hasFlippedCard && !lockGame) {
             hasFlippedCard = false;
-            secondCard = this;
+            secondCard = event.currentTarget;
             checkCards();
         }
     }
