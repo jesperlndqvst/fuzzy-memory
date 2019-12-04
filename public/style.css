@@ -61,6 +61,7 @@ p {
     height: 45rem;
     margin: auto;
     display: flex;
+    align-content: flex-start;
     flex-wrap: wrap;
     perspective: 1000px;
     user-select: none;
