@@ -1,15 +1,19 @@
 'use strict';
 
 let cardsData = [
-    { image: "./img/ape.svg", key: "Ape" },
-    { image: "./img/bear.svg", key: "Bear" },
-    { image: "./img/cow.svg", key: "Cow" },
-    { image: "./img/dog.svg", key: "Dog" },
-    { image: "./img/donkey.svg", key: "Donkey" },
-    { image: "./img/panda.svg", key: "Panda" },
-    { image: "./img/penguin.svg", key: "Penguin" },
-    { image: "./img/fox.svg", key: "Fox" }
+    { image: "./img/ape.svg", key: "Ape", level: 1},
+    { image: "./img/bear.svg", key: "Bear", level: 1},
+    { image: "./img/cow.svg", key: "Cow", level: 1},
+    { image: "./img/dog.svg", key: "Dog", level: 1},
+    { image: "./img/donkey.svg", key: "Donkey", level: 2},
+    { image: "./img/panda.svg", key: "Panda", level: 2},
+    { image: "./img/penguin.svg", key: "Penguin", level: 3},
+    { image: "./img/fox.svg", key: "Fox", level: 3}
 ];
+
+const level = 3;
+// Filters the array accourding to choosen level
+cardsData = cardsData.filter(element => element.level <= level);
 
 const memoryGame = document.querySelector(".memory-game");
 const endGameDiv = document.querySelector('.end-game');
@@ -26,7 +30,6 @@ const shuffleCards = () => {
     return cardsData.sort(() => 0.5 - Math.random());
 }
 
-// Helper function to prevent XSS injections
 // Creates an HTML element from string
 const stringToHTML = str => {
     const div = document.createElement("div");
@@ -115,7 +118,6 @@ const gameStart = () => {
         }
     }
 
-    // Runs the restart function on click
     cards.forEach(card => card.addEventListener('click', flipCard));
     endGameButton.addEventListener('click', restart);
 }
