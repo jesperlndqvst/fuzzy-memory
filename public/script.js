@@ -1,29 +1,35 @@
 'use strict';
 
 let cardsData = [
-    { image: "./img/ape.svg", key: "Ape", level: 1},
-    { image: "./img/bear.svg", key: "Bear", level: 1},
-    { image: "./img/cow.svg", key: "Cow", level: 1},
-    { image: "./img/dog.svg", key: "Dog", level: 1},
-    { image: "./img/donkey.svg", key: "Donkey", level: 2},
-    { image: "./img/panda.svg", key: "Panda", level: 2},
-    { image: "./img/penguin.svg", key: "Penguin", level: 3},
-    { image: "./img/fox.svg", key: "Fox", level: 3}
+    { image: "./img/ape.svg", key: "Ape", level: 1 },
+    { image: "./img/bear.svg", key: "Bear", level: 1 },
+    { image: "./img/cow.svg", key: "Cow", level: 1 },
+    { image: "./img/dog.svg", key: "Dog", level: 1 },
+    { image: "./img/donkey.svg", key: "Donkey", level: 2 },
+    { image: "./img/panda.svg", key: "Panda", level: 2 },
+    { image: "./img/penguin.svg", key: "Penguin", level: 3 },
+    { image: "./img/fox.svg", key: "Fox", level: 3 }
 ];
 
-const level = 3;
-// Filters the array accourding to choosen level
-cardsData = cardsData.filter(element => element.level <= level);
-
-const memoryGame = document.querySelector(".memory-game");
+const memoryGame = document.querySelector('.memory-game');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
 const pEl = document.querySelector('p');
 const spanEl = pEl.querySelector('span');
+const overlayEl = document.querySelector('.overlay');
+const overlayButtons = overlayEl.querySelectorAll('button');
 let counter = 0;
 
+
+// A try to made a level box
+let level = 1;
+cardsData = cardsData.filter(element => element.level <= level);
+
 // Duplicate cards into pairs
-cardsData = cardsData.flatMap(el => [el, el]);
+const cardsToPairs = () => {
+    cardsData = cardsData.flatMap(el => [el, el]);
+}
+
 
 // Shuffles the cards
 const shuffleCards = () => {
@@ -126,19 +132,21 @@ const gameStart = () => {
 const restart = () => {
     while (memoryGame.firstChild) {
         memoryGame.removeChild(memoryGame.firstChild);
-      }
+    }
     counter = 0;
     spanEl.textContent = counter;
     init();
 }
 
 // Initial function
+
 const init = () => {
+    cardsToPairs();
     shuffleCards();
     generateCards();
     gameStart();
 };
 
 // Initialise
-init();
+init()
 
