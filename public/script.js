@@ -16,6 +16,7 @@ const overlayEl = document.querySelector('.overlay');
 const overlayButtons = overlayEl.querySelectorAll('button');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
+const cards = document.querySelectorAll('.memory-card');
 const pEl = document.querySelector('p');
 const spanEl = pEl.querySelector('span');
 let counter = 0;
@@ -31,15 +32,15 @@ const chooseLevel = () => {
             cardsData = cardsData.filter(element => element.level <= level);
             console.log(cardsData);
             overlayEl.style.display = 'none';
-            restart();
+            init();
         })
     });
 }
 
-chooseLevel();
-
 // Duplicate cards into pairs
-cardsData = cardsData.flatMap(el => [el, el]);
+const dublicateCards = () => {
+    cardsData = cardsData.flatMap(el => [el, el]);
+}
 
 // Shuffles the cards
 const shuffleCards = () => {
@@ -72,7 +73,7 @@ const generateCards = () => {
 
 // Makes the cards flip
 const gameStart = () => {
-    const cards = document.querySelectorAll('.memory-card');
+
     let hasFlippedCard = false;
     let lockGame = false;
     let firstCard, secondCard;
@@ -147,16 +148,16 @@ const restart = () => {
     }
     counter = 0;
     spanEl.textContent = counter;
-    init();
+    chooseLevel();
 }
 
 // Initial function
 const init = () => {
+    dublicateCards();
     shuffleCards();
     generateCards();
     gameStart();
 };
 
 // Initialise
-init();
-
+chooseLevel();
