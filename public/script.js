@@ -29,11 +29,14 @@ const chooseLevel = () => {
             let level = button.dataset.level;
             console.log(level);
             cardsData = cardsData.filter(element => element.level <= level);
+            console.log(cardsData);
             overlayEl.style.display = 'none';
+            restart();
         })
     });
 }
 
+chooseLevel();
 
 // Duplicate cards into pairs
 cardsData = cardsData.flatMap(el => [el, el]);
