@@ -28,7 +28,7 @@ const updateLevel = (event) => {
     let level = event.currentTarget.dataset.level;
     cardsLevel = cardsData.filter(element => element.level <= level);
     cardsLevel = cardsLevel.flatMap(el => [el, el]);
-
+    spanEl2.textContent = cardsLevel.length / 2;
     overlayButtons.forEach(button => {
         button.removeEventListener('click', updateLevel);
     });
@@ -37,7 +37,6 @@ const updateLevel = (event) => {
 
 const chooseLevel = () => {
     overlayEl.style.display = 'flex';
-
     overlayButtons.forEach(button => {
         button.addEventListener('click', updateLevel);
     });
@@ -141,7 +140,6 @@ const gameStart = () => {
 
 // Restarts the game
 const restart = () => {
-    console.log('restared')
     while (memoryGame.firstChild) {
         memoryGame.removeChild(memoryGame.firstChild);
     }
