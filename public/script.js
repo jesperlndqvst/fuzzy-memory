@@ -1,6 +1,6 @@
 'use strict';
 
-let cardsData = [
+const cardsData = [
     { image: "./img/ape.svg", key: "Ape", level: 1},
     { image: "./img/bear.svg", key: "Bear", level: 1},
     { image: "./img/cow.svg", key: "Cow", level: 1},
@@ -11,23 +11,34 @@ let cardsData = [
     { image: "./img/fox.svg", key: "Fox", level: 3}
 ];
 
-const level = 3;
-// Filters the array accourding to choosen level
-cardsData = cardsData.filter(element => element.level <= level);
-
 const memoryGame = document.querySelector(".memory-game");
+const overlayEl = document.querySelector('.overlay');
+const overlayButtons = document.querySelectorAll('button');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
 const pEl = document.querySelector('p');
 const spanEl = pEl.querySelector('span');
 let counter = 0;
+let cardsLevel = [];
 
-// Duplicate cards into pairs
- cardsData = cardsData.flatMap(el => [el, el]);
+// Filters the array accourding to choosen level
+
+const chooseLevel = () => {
+    overlayEl.style.display = 'flex';
+    overlayButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            overlayEl.style.display = 'none';
+            let level = button.dataset.level;
+            cardsLevel = cardsData.filter(element => element.level <= level);
+            cardsLevel = cardsLevel.flatMap(el => [el, el]);
+            init();
+        })
+    });
+}
 
 // Shuffles the cards
 const shuffleCards = () => {
-    return cardsData.sort(() => 0.5 - Math.random());
+    return cardsLevel.sort(() => 0.5 - Math.random());
 }
 
 // Creates an HTML element from string
@@ -47,7 +58,7 @@ const createCard = (icon, key, alt) => {
 
 // Makes the card element into pairs and render them to the DOM
 const generateCards = () => {
-    cardsData.forEach(item => {
+    cardsLevel.forEach(item => {
         const element = createCard(item.image, item.key, item.alt);
         memoryGame.appendChild(stringToHTML(element));
     });
@@ -113,7 +124,7 @@ const gameStart = () => {
     const checkCount = () => {
         counter++;
         spanEl.textContent = counter;
-        if (counter === cardsData.length / 2) {
+        if (counter === cardsLevel.length / 2) {
             endGameButton.classList.add('animate');
         }
     }
@@ -129,7 +140,7 @@ const restart = () => {
       }
     counter = 0;
     spanEl.textContent = counter;
-    init();
+    chooseLevel();
 }
 
 // Initial function
@@ -140,4 +151,4 @@ const init = () => {
 };
 
 // Initialise
-init();
+chooseLevel();
