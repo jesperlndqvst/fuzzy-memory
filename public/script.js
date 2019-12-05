@@ -11,31 +11,39 @@ let cardsData = [
     { image: "./img/fox.svg", key: "Fox", level: 3 }
 ];
 
-const memoryGame = document.querySelector('.memory-game');
+const memoryGame = document.querySelector(".memory-game");
+const overlayEl = document.querySelector('.overlay');
+const overlayButtons = overlayEl.querySelectorAll('button');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
 const pEl = document.querySelector('p');
 const spanEl = pEl.querySelector('span');
-const overlayEl = document.querySelector('.overlay');
-const overlayButtons = overlayEl.querySelectorAll('button');
 let counter = 0;
 
-
 // A try to made a level box
-let level = 1;
-cardsData = cardsData.filter(element => element.level <= level);
+const chooseLevel = () => {
+    overlayEl.style.display = 'flex';
+    overlayButtons.forEach(button => {
 
-// Duplicate cards into pairs
-const cardsToPairs = () => {
-    cardsData = cardsData.flatMap(el => [el, el]);
+        button.addEventListener('click', () => {
+            let level = button.dataset.level;
+            console.log(level);
+            cardsData = cardsData.filter(element => element.level <= level);
+            overlayEl.style.display = 'none';
+        })
+    });
 }
 
+
+// Duplicate cards into pairs
+cardsData = cardsData.flatMap(el => [el, el]);
 
 // Shuffles the cards
 const shuffleCards = () => {
     return cardsData.sort(() => 0.5 - Math.random());
 }
 
+// Helper function to prevent XSS injections
 // Creates an HTML element from string
 const stringToHTML = str => {
     const div = document.createElement("div");
@@ -124,6 +132,7 @@ const gameStart = () => {
         }
     }
 
+    // Runs the restart function on click
     cards.forEach(card => card.addEventListener('click', flipCard));
     endGameButton.addEventListener('click', restart);
 }
@@ -139,14 +148,12 @@ const restart = () => {
 }
 
 // Initial function
-
 const init = () => {
-    cardsToPairs();
     shuffleCards();
     generateCards();
     gameStart();
 };
 
 // Initialise
-init()
+init();
 
