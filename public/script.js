@@ -145,6 +145,7 @@ const restart = () => {
     }
     counter = 0;
     spanEl.textContent = counter;
+    endGameButton.classList.remove('animate');
     chooseLevel();
 }
 
