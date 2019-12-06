@@ -60,10 +60,10 @@ const gameStart = () => {
             clickLimit = 22;
             // If level is set to medium
         } else if (cardsLevel.length === 12) {
-            clickLimit = 32;
+            clickLimit = 28;
             // If level is set to hard
         } else {
-            clickLimit = 32;
+            clickLimit = 28;
         }
         spanClickEl2.textContent = clickLimit;
     }
@@ -72,7 +72,6 @@ const gameStart = () => {
 
     const flipCard = (event) => {
 
-
         const checkClicks = () => {
 
             if (lockGame !== true) {
@@ -80,10 +79,11 @@ const gameStart = () => {
                 spanClickEl.textContent = clickCounter;
             }
 
-            if (clickCounter >= clickLimit && counter !== cardsLevel.length / 2) {
+            if (clickCounter === clickLimit && counter !== cardsLevel.length / 2) {
                 cards.forEach(card => card.removeEventListener('click', flipCard));
                 endGameButton.classList.add('animate');
-                h1El.innerHTML = 'YOU LOST! &#129326;';
+                h1El.innerHTML = 'YOU LOST!&#129326;';
+                clickCounter = 0;
             }
         }
 
@@ -139,8 +139,8 @@ const gameStart = () => {
     const checkCount = () => {
         counter++;
         spanEl.textContent = counter;
-        if (counter === cardsLevel.length / 2) {
-            h1El.innerHTML = 'YOU WIN! &#128526;';
+        if (counter === cardsLevel.length / 2 && clickCounter !== 0) {
+            h1El.innerHTML = 'YOU WIN!&#128526;';
             endGameButton.classList.add('animate');
         }
     }
