@@ -79,8 +79,8 @@ const gameStart = () => {
                 clickCounter++;
                 spanClickEl.textContent = clickCounter;
             }
-            
-            if (clickCounter >= clickLimit) {
+
+            if (clickCounter >= clickLimit && counter !== cardsLevel.length / 2) {
                 cards.forEach(card => card.removeEventListener('click', flipCard));
                 endGameButton.classList.add('animate');
                 h1El.innerHTML = 'YOU LOST! &#129326;';
