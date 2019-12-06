@@ -8,29 +8,39 @@
         <title>Fuzzy Memory</title>
     </head>
     <body>
-        <div class="overlay">
-            <div>
-                <h2>Choose level</h2>
-                <div class="overlay-buttons">
-                    <button data-level="1">Easy</button>
-                    <button data-level="2">Medium</button>
-                    <button data-level="3">Hard</button>
+        <div class="conatiner">
+            <div class="overlay">
+                <div>
+                    <h2>Choose level</h2>
+                    <div class="overlay-buttons">
+                        <button data-level="1">Easy</button>
+                        <button data-level="2">Medium</button>
+                        <button data-level="3">Hard</button>
+                    </div>
                 </div>
             </div>
+
+            <h1>Fuzzy <span>Memory</span></h1>
+
+            <div class="end-game">
+                <p class="pairs">
+                    Pairs: <span class="first-number">0</span>/<span
+                        class="second-number"
+                        >8</span
+                    >
+                </p>
+                <p class="clicks">
+                    Clicks: <span class="first-click">0</span>/<span
+                        class="second-click"
+                        >8</span
+                    >
+                </p>
+                <button>Restart</button>
+            </div>
+
+            <div class="memory-game"></div>
         </div>
-
-        <h1>Fuzzy <span>Memory</span></h1>
-
-        <div class="end-game">
-            <p class="pairs">Pairs: <span class="first-number">0</span>/<span class="second-number">8</span></p>
-            <p class="clicks">Clicks: <span class="first-click">0</span>/<span class="second-click">8</span></p>
-            <button>Restart</button>
-        </div>
-
-        <div class="memory-game"></div>
-
         <script src="script.js"></script>
         <script src="functions.js"></script>
-
     </body>
 </html>

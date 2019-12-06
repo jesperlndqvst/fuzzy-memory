@@ -57,7 +57,7 @@ const gameStart = () => {
     const setClickLimit = () => {
         // If level is set to easy
         if (cardsLevel.length === 8) {
-            clickLimit = 18;
+            clickLimit = 22;
             // If level is set to medium
         } else if (cardsLevel.length === 12) {
             clickLimit = 32;
@@ -79,11 +79,11 @@ const gameStart = () => {
                 clickCounter++;
                 spanClickEl.textContent = clickCounter;
             }
-            console.log(clickCounter);
+            
             if (clickCounter >= clickLimit) {
                 cards.forEach(card => card.removeEventListener('click', flipCard));
                 endGameButton.classList.add('animate');
-                console.log('You lost');
+                h1El.innerHTML = 'YOU LOST! &#129326;';
             }
         }
 
@@ -140,6 +140,7 @@ const gameStart = () => {
         counter++;
         spanEl.textContent = counter;
         if (counter === cardsLevel.length / 2) {
+            h1El.innerHTML = 'YOU WIN! &#128526;';
             endGameButton.classList.add('animate');
         }
     }
@@ -157,6 +158,7 @@ const restart = () => {
     spanEl.textContent = counter;
     spanClickEl.textContent = clickCounter;
     endGameButton.classList.remove('animate');
+    h1El.innerHTML = 'Fuzzy <span>Memory</span>';
     chooseLevel();
 }
 

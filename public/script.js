@@ -13,6 +13,7 @@ const cardsData = [
 
 const memoryGame = document.querySelector(".memory-game");
 const overlayEl = document.querySelector('.overlay');
+const h1El = document.querySelector('h1');
 const overlayButtons = overlayEl.querySelectorAll('button');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
