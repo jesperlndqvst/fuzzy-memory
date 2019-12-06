@@ -11,6 +11,7 @@ const updateLevel = (event) => {
     init();
 }
 
+// Updates the game board
 const chooseLevel = () => {
     overlayEl.style.display = 'flex';
     overlayButtons.forEach(button => {
@@ -53,12 +54,44 @@ const gameStart = () => {
     let lockGame = false;
     let firstCard, secondCard;
 
+    const setClickLimit = () => {
+        // If level is set to easy
+        if (cardsLevel.length === 8) {
+            clickLimit = 18;
+            // If level is set to medium
+        } else if (cardsLevel.length === 12) {
+            clickLimit = 32;
+            // If level is set to hard
+        } else {
+            clickLimit = 32;
+        }
+        spanClickEl2.textContent = clickLimit;
+    }
+
+    setClickLimit();
+
     const flipCard = (event) => {
+
+
+        const checkClicks = () => {
+
+            if (lockGame !== true) {
+                clickCounter++;
+                spanClickEl.textContent = clickCounter;
+            }
+            console.log(clickCounter);
+            if (clickCounter >= clickLimit) {
+                cards.forEach(card => card.removeEventListener('click', flipCard));
+                endGameButton.classList.add('animate');
+                console.log('You lost');
+            }
+        }
+
+        checkClicks();
 
         if (!lockGame) {
             event.currentTarget.classList.add('flip');
         }
-
         // Checks if card has been flipped
         if (!hasFlippedCard && !lockGame) {
             hasFlippedCard = true;
@@ -120,7 +153,9 @@ const restart = () => {
         memoryGame.removeChild(memoryGame.firstChild);
     }
     counter = 0;
+    clickCounter = 0;
     spanEl.textContent = counter;
+    spanClickEl.textContent = clickCounter;
     endGameButton.classList.remove('animate');
     chooseLevel();
 }

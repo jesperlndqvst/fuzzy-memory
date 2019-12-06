@@ -16,11 +16,17 @@ const overlayEl = document.querySelector('.overlay');
 const overlayButtons = overlayEl.querySelectorAll('button');
 const endGameDiv = document.querySelector('.end-game');
 const endGameButton = endGameDiv.querySelector('button');
-const pEl = document.querySelector('p');
+const pEl = document.querySelector('.pairs');
 const spanEl = pEl.querySelector('.first-number');
 const spanEl2 = pEl.querySelector('.second-number');
+const clicks = document.querySelector('.clicks');
+const spanClickEl = clicks.querySelector('.first-click');
+const spanClickEl2 = clicks.querySelector('.second-click');
 let counter = 0;
 let cardsLevel = [];
+let level;
+let clickLimit;
+let clickCounter = 0;
 
 
 
