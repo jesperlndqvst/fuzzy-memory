@@ -2,7 +2,7 @@
 A memory game buit in in HTML, CSS and Javascript
 
 
-<img src="https://media.giphy.com/media/13xEKxMqnclCE0/giphy.gif" width="100%">
+<img src="https://media.giphy.com/media/Pm4Quy79Sjaik/giphy.gif" width="100%">
 
 
 ## How to play
@@ -10,6 +10,6 @@ A memory game buit in in HTML, CSS and Javascript
 2. Turn over the cards and match them!
 
 ## Testers
-* [Test person 1](https://github.com/)
-* [Test person 2](https://github.com/)
-* [Test person 3](https://github.com/)
+* [Thomas Sönnerstam](https://github.com/ThomasSonnerstam)
+* [Betsy Alva Soplin](https://github.com/milliebase)
+* [Henric Björk](https://github.com/henricbjork)
