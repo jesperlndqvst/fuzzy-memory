@@ -1,21 +1,21 @@
 'use strict';
 
 const cardsData = [
-    { image: "./img/ape.svg", key: "Ape", level: 1 },
-    { image: "./img/bear.svg", key: "Bear", level: 1 },
-    { image: "./img/cow.svg", key: "Cow", level: 1 },
-    { image: "./img/dog.svg", key: "Dog", level: 1 },
-    { image: "./img/donkey.svg", key: "Donkey", level: 1 },
-    { image: "./img/panda.svg", key: "Panda", level: 1 },
-    { image: "./img/penguin.svg", key: "Penguin", level: 1 },
-    { image: "./img/fox.svg", key: "Fox", level: 1 },
-    { image: "./img/cat.svg", key: "Ape", level: 2 },
-    { image: "./img/whale.svg", key: "Bear", level: 2 },
-    { image: "./img/bat.svg", key: "Cow", level: 2 },
-    { image: "./img/eagle.svg", key: "Dog", level: 2 },
-    { image: "./img/elephant.svg", key: "Donkey", level: 2 },
-    { image: "./img/rabbit.svg", key: "Panda", level: 2 },
-    { image: "./img/dolphin.svg", key: "Penguin", level: 2 },
+    { image: "./img/ape.svg", key: 1, level: 1 },
+    { image: "./img/bear.svg", key: 2, level: 1 },
+    { image: "./img/cow.svg", key: 3, level: 1 },
+    { image: "./img/dog.svg", key: 4, level: 1 },
+    { image: "./img/donkey.svg", key: 5, level: 1 },
+    { image: "./img/panda.svg", key: 6, level: 1 },
+    { image: "./img/penguin.svg", key: 7, level: 1 },
+    { image: "./img/fox.svg", key: 8, level: 1 },
+    { image: "./img/cat.svg", key: 9, level: 2 },
+    { image: "./img/whale.svg", key: 10, level: 2 },
+    { image: "./img/bat.svg", key: 11, level: 2 },
+    { image: "./img/eagle.svg", key: 12, level: 2 },
+    { image: "./img/elephant.svg", key: 13, level: 2 },
+    { image: "./img/rabbit.svg", key: 14, level: 2 },
+    { image: "./img/dolphin.svg", key: 15, level: 2 },
 
 
 ];
