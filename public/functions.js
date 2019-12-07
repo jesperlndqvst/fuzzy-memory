@@ -57,7 +57,7 @@ const gameStart = () => {
     const setClickLimit = () => {
         // If level is set to easy
         if (cardsLevel.length === 8) {
-            clickLimit = 22;
+            clickLimit = 18;
             // If level is set to medium
         } else if (cardsLevel.length === 12) {
             clickLimit = 28;
@@ -74,17 +74,18 @@ const gameStart = () => {
 
         const checkClicks = () => {
 
+
             if (lockGame !== true) {
                 clickCounter++;
                 spanClickEl.textContent = clickCounter;
+
+                if (counter < cardsLevel.length / 2 && clickCounter === clickLimit) {
+                    cards.forEach(card => card.removeEventListener('click', flipCard));
+                    endGameButton.classList.add('animate');
+                    h1El.innerHTML = 'YOU LOST!&#129326;';
+                }
             }
 
-            if (clickCounter === clickLimit && counter !== cardsLevel.length / 2) {
-                cards.forEach(card => card.removeEventListener('click', flipCard));
-                endGameButton.classList.add('animate');
-                h1El.innerHTML = 'YOU LOST!&#129326;';
-                clickCounter = 0;
-            }
         }
 
         checkClicks();
@@ -117,12 +118,13 @@ const gameStart = () => {
     // Removes the eventlistener
     const removeEvent = () => {
         lockGame = true;
+        checkCount();
         setTimeout(() => {
             firstCard.removeEventListener('click', flipCard);
             secondCard.removeEventListener('click', flipCard);
-            checkCount();
             lockGame = false;
         }, 1000);
+
     }
 
     // Removes the flip classes and turns the cards back
@@ -139,7 +141,8 @@ const gameStart = () => {
     const checkCount = () => {
         counter++;
         spanEl.textContent = counter;
-        if (counter === cardsLevel.length / 2 && clickCounter !== 0) {
+
+        if (counter === cardsLevel.length / 2) {
             h1El.innerHTML = 'YOU WIN!&#128526;';
             endGameButton.classList.add('animate');
         }

@@ -28,6 +28,7 @@ let cardsLevel = [];
 let level;
 let clickLimit;
 let clickCounter = 0;
+let hasLost;
 
 
 
