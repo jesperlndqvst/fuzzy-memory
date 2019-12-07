@@ -5,10 +5,19 @@ const cardsData = [
     { image: "./img/bear.svg", key: "Bear", level: 1 },
     { image: "./img/cow.svg", key: "Cow", level: 1 },
     { image: "./img/dog.svg", key: "Dog", level: 1 },
+    { image: "./img/donkey.svg", key: "Donkey", level: 1 },
+    { image: "./img/panda.svg", key: "Panda", level: 1 },
+    { image: "./img/penguin.svg", key: "Penguin", level: 1 },
+    { image: "./img/fox.svg", key: "Fox", level: 1 },
+    { image: "./img/ape.svg", key: "Ape", level: 2 },
+    { image: "./img/bear.svg", key: "Bear", level: 2 },
+    { image: "./img/cow.svg", key: "Cow", level: 2 },
+    { image: "./img/dog.svg", key: "Dog", level: 2 },
     { image: "./img/donkey.svg", key: "Donkey", level: 2 },
     { image: "./img/panda.svg", key: "Panda", level: 2 },
-    { image: "./img/penguin.svg", key: "Penguin", level: 3 },
-    { image: "./img/fox.svg", key: "Fox", level: 3 }
+    { image: "./img/penguin.svg", key: "Penguin", level: 2 },
+  
+
 ];
 
 const memoryGame = document.querySelector(".memory-game");

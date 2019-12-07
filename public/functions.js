@@ -32,10 +32,10 @@ const stringToHTML = str => {
 };
 
 // Create card template with a template literal
-const createCard = (icon, key, alt) => {
+const createCard = (icon, key) => {
     return `<div class="memory-card" data-key="${key}">
-        <img class="front-face" src="${icon}" alt="${alt}" />
-        <img class="back-face" src="img/back-face.svg" alt="Memory Card" />
+        <img class="front-face" src="${icon}"/>
+        <img class="back-face" src="img/back-face.svg"/>
         </div>`;
 };
 
@@ -50,6 +50,13 @@ const generateCards = () => {
 // Makes the cards flip
 const gameStart = () => {
     const cards = document.querySelectorAll('.memory-card');
+    cards.forEach(card => {
+        if (cardsLevel.length === 30) {
+            card.classList.add('hard');
+        } else {
+            card.classList.remove('hard');
+        }
+    })
     let hasFlippedCard = false;
     let lockGame = false;
     let firstCard, secondCard;
