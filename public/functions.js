@@ -1,7 +1,10 @@
 // Filters the array accourding to choosen level
 const updateLevel = (event) => {
     overlayEl.style.display = 'none';
-    let level = event.currentTarget.dataset.level;
+    level = event.currentTarget.dataset.level;
+    if (level === 3) {
+        hardMode = true;
+    }
     cardsLevel = cardsData.filter(element => element.level <= level);
     cardsLevel = cardsLevel.flatMap(el => [el, el]);
     spanEl2.textContent = cardsLevel.length / 2;
@@ -62,15 +65,13 @@ const gameStart = () => {
     let firstCard, secondCard;
 
     const setClickLimit = () => {
-        // If level is set to easy
-        if (cardsLevel.length === 8) {
-            clickLimit = 18;
-            // If level is set to medium
-        } else if (cardsLevel.length === 12) {
-            clickLimit = 28;
-            // If level is set to hard
-        } else {
-            clickLimit = 28;
+
+        if (level == 1) {
+            clickLimit = 32;
+        } else if (level == 2) {
+            clickLimit = 60;
+        } else if (level == 3) {
+            clickLimit = 40;
         }
         spanClickEl2.textContent = clickLimit;
     }
@@ -80,7 +81,6 @@ const gameStart = () => {
     const flipCard = (event) => {
 
         const checkClicks = () => {
-
 
             if (lockGame !== true) {
                 clickCounter++;
@@ -92,7 +92,6 @@ const gameStart = () => {
                     h1El.innerHTML = 'YOU LOST!&#129326;';
                 }
             }
-
         }
 
         checkClicks();

@@ -42,7 +42,7 @@ button {
 
 
 .container {
-    max-width: 635px;
+    max-width: 1070px;
     margin: auto;
 }
 
@@ -109,19 +109,33 @@ button {
 }
 
 .memory-game {
-    width: 40rem;
-    height: 45rem;
+    width: 70rem;
+    height: 30rem;
     margin: auto;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     perspective: 1000px;
-    /* user-select: none; */
+    user-select: none;
 }
 
 .memory-card {
-    width: calc(25% - 10px);
-    height: calc(25% - 10px);
+    width: calc(24% - 10px);
+    height: calc(35% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.memory-card.hard {
+    width: calc(16% - 10px);
+    height: calc(26% - 10px);
     margin: 5px;
     position: relative;
     transform: scale(1);
@@ -233,8 +247,14 @@ button {
     }
 
     .memory-game {
-        width: 95vw;
+        width: 99%;
         height: 82vh;
+    }
+
+    .memory-card {
+        width: calc(25% - 5px);
+        height: calc(24% - 5px);
+        margin: 2.5px;
     }
 
     .memory-card.hard {
@@ -244,8 +264,7 @@ button {
     }
 
     .end-game {
-        padding: 0.5rem 0;
-        width: 90%;
+        padding: 0.5rem;
         justify-content: space-between;
     }
 
