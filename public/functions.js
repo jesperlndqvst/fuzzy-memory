@@ -71,7 +71,7 @@ const gameStart = () => {
         } else if (level == 2) {
             clickLimit = 60;
         } else if (level == 3) {
-            clickLimit = 40;
+            clickLimit = 50;
         }
         spanClickEl2.textContent = clickLimit;
     }
