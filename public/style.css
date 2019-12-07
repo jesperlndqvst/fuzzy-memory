@@ -172,24 +172,16 @@ button {
     cursor: pointer;
 }
 
+.memory-card.medium {
+    width: calc(24% - 10px);
+    height: calc(28% - 10px);
+}
+
 .memory-card.hard {
     width: calc(16% - 10px);
     height: calc(26% - 10px);
-    margin: 5px;
-    position: relative;
-    -ms-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: -webkit-transform 0.3s;
-    -o-transition: transform 0.3s;
-    transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s;
-    -webkit-transition: transform 0.3s;
-    cursor: pointer;
 }
+
 
 .memory-card:active {
     -webkit-transform: scale(0.97);
@@ -365,10 +357,14 @@ button {
         margin: 2.5px;
     }
 
+    .memory-card.medium {
+        width: calc(21% - 10px);
+        height: calc(26% - 10px);
+    }
+
     .memory-card.hard {
         width: calc(20% - 5px);
         height: calc(16.5% - 5px);
-        margin: 2.5px;
     }
 
     .end-game {
