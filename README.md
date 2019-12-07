@@ -8,8 +8,6 @@ First school assignment in JavaScript. A memory game buit in in HTML, CSS and Ja
 
 ### Create a memory game using HTML, CSS and JavaScript.
 
--   There should be at least 8 pairs and a maximum of 10 pairs.
-
 -   The pairs should be randomly positioned before a new game starts.
 
 -   The project should implement nice graphical user interface.
