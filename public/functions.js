@@ -74,7 +74,7 @@ const gameStart = () => {
         if (level == 1) {
             clickLimit = 32;
         } else if (level == 2) {
-            clickLimit = 54;
+            clickLimit = 52;
         } else if (level == 3) {
             clickLimit = 70;
         }
