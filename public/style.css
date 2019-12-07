@@ -174,7 +174,7 @@ button {
 
 .memory-card.medium {
     width: calc(24% - 10px);
-    height: calc(28% - 10px);
+    height: calc(29% - 10px);
 }
 
 .memory-card.hard {
