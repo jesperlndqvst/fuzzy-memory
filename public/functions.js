@@ -56,7 +56,12 @@ const gameStart = () => {
     cards.forEach(card => {
         if (cardsLevel.length === 30) {
             card.classList.add('hard');
+            card.classList.remove('medium');
+        } else if (cardsLevel.length === 20) {
+            card.classList.add('medium');
+            card.classList.remove('hard');
         } else {
+            card.classList.remove('medium');
             card.classList.remove('hard');
         }
     })
@@ -69,9 +74,9 @@ const gameStart = () => {
         if (level == 1) {
             clickLimit = 32;
         } else if (level == 2) {
-            clickLimit = 70;
-        } else if (level == 3) {
             clickLimit = 54;
+        } else if (level == 3) {
+            clickLimit = 70;
         }
         spanClickEl2.textContent = clickLimit;
     }

@@ -11,11 +11,11 @@ const cardsData = [
     { image: "./img/fox.svg", key: 8, level: 1 },
     { image: "./img/cat.svg", key: 9, level: 2 },
     { image: "./img/whale.svg", key: 10, level: 2 },
-    { image: "./img/bat.svg", key: 11, level: 2 },
-    { image: "./img/eagle.svg", key: 12, level: 2 },
-    { image: "./img/elephant.svg", key: 13, level: 2 },
-    { image: "./img/rabbit.svg", key: 14, level: 2 },
-    { image: "./img/dolphin.svg", key: 15, level: 2 },
+    { image: "./img/bat.svg", key: 11, level: 3 },
+    { image: "./img/eagle.svg", key: 12, level: 3 },
+    { image: "./img/elephant.svg", key: 13, level: 3 },
+    { image: "./img/rabbit.svg", key: 14, level: 3 },
+    { image: "./img/dolphin.svg", key: 15, level: 3 },
 
 
 ];
