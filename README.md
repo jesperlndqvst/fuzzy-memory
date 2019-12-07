@@ -26,7 +26,7 @@ First school assignment in JavaScript. A memory game buit in in HTML, CSS and Ja
 2. Turn over the cards and match them!
 
 ## Preview
-<img src="https://i.imgur.com/dlWX8ca.png" /> <img src="https://i.imgur.com/oWu1sZx.gif"/> 
+<img src="https://i.imgur.com/dlWX8ca.png" /> <img src="https://i.imgur.com/rCupKxS.png"/> 
 
 <img src="https://i.imgur.com/7maKFU0.png" width="100%">
 
