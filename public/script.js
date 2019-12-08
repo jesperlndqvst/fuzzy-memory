@@ -16,8 +16,6 @@ const cardsData = [
     { image: "./img/elephant.svg", key: 13, level: 3 },
     { image: "./img/rabbit.svg", key: 14, level: 3 },
     { image: "./img/dolphin.svg", key: 15, level: 3 },
-
-
 ];
 
 const memoryGame = document.querySelector(".memory-game");
@@ -32,11 +30,12 @@ const spanEl2 = pEl.querySelector('.second-number');
 const clicks = document.querySelector('.clicks');
 const spanClickEl = clicks.querySelector('.first-click');
 const spanClickEl2 = clicks.querySelector('.second-click');
+
 let counter = 0;
-let cardsLevel = [];
-let level;
-let clickLimit;
 let clickCounter = 0;
+let cardsLevel = [];
+let level, clickLimit;
+
 
 
 
