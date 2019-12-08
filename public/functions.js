@@ -1,10 +1,9 @@
-// Filters the array accourding to choosen level
+'use strict';
+
+// Updates the game board accourding to choosen level
 const updateLevel = (event) => {
     overlayEl.style.display = 'none';
     level = event.currentTarget.dataset.level;
-    if (level === 3) {
-        hardMode = true;
-    }
     cardsLevel = cardsData.filter(element => element.level <= level);
     cardsLevel = cardsLevel.flatMap(el => [el, el]);
     spanEl2.textContent = cardsLevel.length / 2;
@@ -69,8 +68,9 @@ const gameStart = () => {
     let lockGame = false;
     let firstCard, secondCard;
 
-    const setClickLimit = () => {
 
+    // Sets the click limit for each level
+    const setClickLimit = () => {
         if (level == 1) {
             clickLimit = 32;
         } else if (level == 2) {
@@ -83,14 +83,12 @@ const gameStart = () => {
 
     setClickLimit();
 
+    // Flips the cards
     const flipCard = (event) => {
-
         const checkClicks = () => {
-
             if (lockGame !== true) {
                 clickCounter++;
                 spanClickEl.textContent = clickCounter;
-
                 if (counter < cardsLevel.length / 2 && clickCounter === clickLimit) {
                     cards.forEach(card => card.removeEventListener('click', flipCard));
                     endGameButton.classList.add('animate');
@@ -135,7 +133,6 @@ const gameStart = () => {
             secondCard.removeEventListener('click', flipCard);
             lockGame = false;
         }, 1000);
-
     }
 
     // Removes the flip classes and turns the cards back
