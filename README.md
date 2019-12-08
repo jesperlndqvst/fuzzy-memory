@@ -33,3 +33,6 @@ First school assignment in JavaScript. A memory game buit in in HTML, CSS and Ja
 * [Henric Björk](https://github.com/henricbjork)
 
 ## Code Review
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
