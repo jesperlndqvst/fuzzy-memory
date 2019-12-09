@@ -1,7 +1,7 @@
 'use strict';
 
 // Updates the game board accourding to choosen level
-const updateLevel = (event) => {
+const updateLevel = event => {
     overlayEl.style.display = 'none';
     level = event.currentTarget.dataset.level;
     cardsLevel = cardsData.filter(element => element.level <= level);
@@ -11,7 +11,7 @@ const updateLevel = (event) => {
         button.removeEventListener('click', updateLevel);
     });
     init();
-}
+};
 
 // Updates the game board
 const chooseLevel = () => {
@@ -19,16 +19,16 @@ const chooseLevel = () => {
     overlayButtons.forEach(button => {
         button.addEventListener('click', updateLevel);
     });
-}
+};
 
 // Shuffles the cards
 const shuffleCards = () => {
     cardsLevel.sort(() => 0.5 - Math.random());
-}
+};
 
 // Creates an HTML element from string
 const stringToHTML = str => {
-    const div = document.createElement("div");
+    const div = document.createElement('div');
     div.innerHTML = str;
     return div.firstChild;
 };
@@ -63,11 +63,10 @@ const gameStart = () => {
             card.classList.remove('medium');
             card.classList.remove('hard');
         }
-    })
+    });
     let hasFlippedCard = false;
     let lockGame = false;
     let firstCard, secondCard;
-
 
     // Sets the click limit for each level
     const setClickLimit = () => {
@@ -79,23 +78,28 @@ const gameStart = () => {
             clickLimit = 70;
         }
         spanClickEl2.textContent = clickLimit;
-    }
+    };
 
     setClickLimit();
 
     // Flips the cards
-    const flipCard = (event) => {
+    const flipCard = event => {
         const checkClicks = () => {
             if (lockGame !== true) {
                 clickCounter++;
                 spanClickEl.textContent = clickCounter;
-                if (counter < cardsLevel.length / 2 && clickCounter === clickLimit) {
-                    cards.forEach(card => card.removeEventListener('click', flipCard));
+                if (
+                    counter < cardsLevel.length / 2 &&
+                    clickCounter === clickLimit
+                ) {
+                    cards.forEach(card =>
+                        card.removeEventListener('click', flipCard)
+                    );
                     endGameButton.classList.add('animate');
                     h1El.innerHTML = 'YOU LOST!&#129326;';
                 }
             }
-        }
+        };
 
         checkClicks();
 
@@ -111,7 +115,7 @@ const gameStart = () => {
             secondCard = event.currentTarget;
             checkCards();
         }
-    }
+    };
 
     // Checks if there is a match
     const checkCards = () => {
@@ -122,7 +126,7 @@ const gameStart = () => {
         } else {
             turnBackCards();
         }
-    }
+    };
 
     // Removes the eventlistener
     const removeEvent = () => {
@@ -133,7 +137,7 @@ const gameStart = () => {
             secondCard.removeEventListener('click', flipCard);
             lockGame = false;
         }, 1000);
-    }
+    };
 
     // Removes the flip classes and turns the cards back
     const turnBackCards = () => {
@@ -143,7 +147,7 @@ const gameStart = () => {
             secondCard.classList.remove('flip');
             lockGame = false;
         }, 1000);
-    }
+    };
 
     // Checks if game is finished
     const checkCount = () => {
@@ -154,10 +158,10 @@ const gameStart = () => {
             h1El.innerHTML = 'YOU WIN!&#128526;';
             endGameButton.classList.add('animate');
         }
-    }
+    };
     cards.forEach(card => card.addEventListener('click', flipCard));
     endGameButton.addEventListener('click', restart);
-}
+};
 
 // Restarts the game
 const restart = () => {
@@ -171,7 +175,7 @@ const restart = () => {
     endGameButton.classList.remove('animate');
     h1El.innerHTML = 'Fuzzy <span>Memory</span>';
     chooseLevel();
-}
+};
 
 // Initial function
 const init = () => {
