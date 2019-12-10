@@ -34,5 +34,15 @@ First school assignment in JavaScript. A memory game buit in in HTML, CSS and Ja
 
 ## Code Review
 
+* functions.js:5/18 Instead of using overlayEl.style.display = 'none'; and overlayEl.style.display = 'flex'; you could toggle between an display overlay class
+
+* style.css Don’t forget to register fonts that the user doesn’t have by default with @font-face
+
+* style.css:130-145 declares transition transform 6 times, should just need to declare it 2 times?
+
+* style.css:157-165 declares transition transform 6 times? 
+
+* Overall: Very good and consistent syntax
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
