@@ -64,8 +64,8 @@ button {
     display: flex;
     flex-direction: column;
     background-color: #fbede9;
-    height: 40rem;
-    width: 40rem;
+    height: 90vh;
+    width: 40vw;
     text-align: center;
 }
 
@@ -252,8 +252,8 @@ button {
     }
 
     .overlay div {
-        height: 35rem;
-        width: 20rem;
+        height: 77vh;
+        width: 90vw;
     }
 
     .overlay div h2 {
@@ -262,7 +262,7 @@ button {
     }
 
     .overlay-buttons button {
-        margin: 3rem 0 0 0;
+        margin: 1.5rem 0;
         width: 65%;
         font-size: 1.5rem;
         padding: 0.5rem;
