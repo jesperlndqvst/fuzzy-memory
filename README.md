@@ -1,5 +1,5 @@
 # fuzzy-memory
-First school assignment in JavaScript. A memory game built in in HTML, CSS and Javascript.
+First school assignment in JavaScript. A memory game built in HTML, CSS and Javascript.
 
 ## Assignment instructions
 
